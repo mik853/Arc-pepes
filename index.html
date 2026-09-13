@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arc Pepe</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="stars"></canvas>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand">ARC PEPE</a>
+    <nav class="nav-links">
+      <a href="#top">Home</a>
+      <a href="#about">About</a>
+      <a href="#how-to-buy">How to Buy</a>
+      <a href="#mint-info">Mint Info</a>
+    </nav>
+    <a href="#whitelist" class="btn btn-primary nav-cta">Join Whitelist</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <section id="top" class="hero">
+    <div class="hero-arrows">
+      <button class="arrow-btn" id="scrollDown" aria-label="Scroll down">&#8595;</button>
+    </div>
+
+    <div class="hero-feature hero-feature-left">
+      <p><span class="dot"></span>100% Community Owned</p>
+      <p><span class="dot"></span>Fair Launch, No VCs</p>
+    </div>
+
+    <div class="hero-center">
+      <p class="hero-kicker">Meet the</p>
+      <h1 class="hero-title">ARC&nbsp;PEPE</h1>
+      <p class="hero-tagline">The frog that runs the chain</p>
+
+      <div class="pepe-stage">
+        <div class="pepe-glow"></div>
+        <img src="assets/pepe.jpg" alt="Arc Pepe pixel art" class="pepe-img">
+      </div>
+    </div>
+
+    <div class="hero-feature hero-feature-right">
+      <p><span class="dot"></span>Meme Powered Movement</p>
+      <p><span class="dot"></span>Built On-Chain, Built to Last</p>
+    </div>
+
+    <aside class="side-social">
+      <a href="https://x.com/ArcPepe__" target="_blank" rel="noopener" aria-label="Arc Pepe on X">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M18.24 2h3.3l-7.2 8.24L23 22h-6.62l-5.2-6.8L5.2 22H1.9l7.7-8.8L1 2h6.8l4.7 6.2L18.24 2Zm-1.16 18h1.83L7.03 3.9H5.06L17.08 20Z"/></svg>
+      </a>
+    </aside>
+
+    <div class="ca-bar">
+      <span class="ca-label">CA</span>
+      <span class="ca-value" id="caValue">Coming soon</span>
+      <button class="ca-copy" id="caCopy" aria-label="Copy contract address">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="1.5"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <section id="about" class="panel">
+    <div class="panel-inner">
+      <p class="panel-kicker">About</p>
+      <h2>What is Arc Pepe?</h2>
+      <p class="panel-body">
+        Arc Pepe is a pixel-art frog collection built by a small community that likes memes more than roadmaps.
+        Full story, lore, and team details are on their way — check back soon for the complete picture.
+      </p>
+    </div>
+  </section>
+
+  <section id="how-to-buy" class="panel panel-alt">
+    <div class="panel-inner">
+      <p class="panel-kicker">How to Buy</p>
+      <h2 class="coming-soon">Coming Soon</h2>
+      <p class="panel-body">Buying instructions will be posted here once mint goes live.</p>
+    </div>
+  </section>
+
+  <section id="mint-info" class="panel">
+    <div class="panel-inner">
+      <p class="panel-kicker">Mint Info</p>
+      <h2 class="coming-soon">Coming Soon on Arc</h2>
+      <div class="mint-stats">
+        <div class="mint-stat">
+          <span class="mint-stat-value">3,333</span>
+          <span class="mint-stat-label">Supply</span>
+        </div>
+        <div class="mint-stat">
+          <span class="mint-stat-value">$2</span>
+          <span class="mint-stat-label">Mint Price</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="whitelist" class="panel panel-alt whitelist">
+    <div class="panel-inner">
+      <p class="panel-kicker">Join the whitelist</p>
+      <h2>Get on the list</h2>
+      <p class="panel-body">Fill this in to reserve a whitelist spot for the Arc Pepe mint.</p>
+
+      <form class="wl-form" id="wlForm">
+        <div class="field">
+          <label for="twitterUsername">Twitter Username</label>
+          <input type="text" id="twitterUsername" name="twitterUsername" placeholder="@yourhandle" required>
+        </div>
+
+        <div class="field">
+          <label for="retweetLink">Retweet Link</label>
+          <div class="field-with-btn">
+            <input type="url" id="retweetLink" name="retweetLink" placeholder="Paste your retweet link" required>
+            <a href="https://x.com/ArcPepe__" target="_blank" rel="noopener" class="btn btn-ghost field-btn">View Tweet</a>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="walletAddress">Wallet Address</label>
+          <input type="text" id="walletAddress" name="walletAddress" placeholder="0x..." required>
+        </div>
+
+        <button type="submit" class="btn btn-primary submit-btn" id="submitBtn">
+          <span class="submit-label">Submit Entry</span>
+          <span class="submit-pepe" aria-hidden="true">
+            <img src="assets/pepe.jpg" alt="">
+          </span>
+        </button>
+      </form>
+
+      <div class="wl-success" id="wlSuccess" hidden>
+        <img src="assets/pepe.jpg" alt="" class="success-pepe">
+        <p>You're on the list. See you at mint.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Arc Pepe. Not financial advice. DYOR.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
