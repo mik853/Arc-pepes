@@ -42,7 +42,7 @@ body {
 }
 
 h1, h2, .brand, .hero-title, .nav-links a, .btn, .panel-kicker, .hero-kicker,
-.ca-label, .ca-value, .mint-stat-value, .field label {
+.mint-stat-value, .field label {
   font-family: var(--font-pixel);
 }
 
@@ -336,42 +336,6 @@ a {
   transform: scale(1.15);
 }
 
-.ca-bar {
-  position: absolute;
-  bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  background: rgba(109, 224, 106, 0.08);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 14px 20px;
-  font-size: 0.55rem;
-  color: var(--text-dim);
-  z-index: 2;
-}
-
-.ca-label {
-  color: var(--green);
-  font-weight: 700;
-}
-
-.ca-copy {
-  background: none;
-  border: none;
-  color: var(--text-dim);
-  cursor: pointer;
-  display: flex;
-  padding: 2px;
-  transition: color 0.15s ease;
-}
-
-.ca-copy:hover {
-  color: var(--green);
-}
-
 /* Panels */
 .panel {
   position: relative;
@@ -621,13 +585,6 @@ a {
     top: 100%;
     left: 32px;
     margin-top: 210px;
-  }
-
-  .ca-bar {
-    font-size: 0.72rem;
-    padding: 10px 14px;
-    gap: 8px;
-    max-width: 90vw;
   }
 
   .field-with-btn {

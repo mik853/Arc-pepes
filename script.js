@@ -60,21 +60,6 @@ document.getElementById('scrollDown').addEventListener('click', () => {
   document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
 });
 
-// --- Copy CA ---
-const caCopy = document.getElementById('caCopy');
-const caValue = document.getElementById('caValue');
-caCopy.addEventListener('click', async () => {
-  const text = caValue.textContent.trim();
-  try {
-    await navigator.clipboard.writeText(text);
-    const original = caValue.textContent;
-    caValue.textContent = 'Copied!';
-    setTimeout(() => { caValue.textContent = original; }, 1400);
-  } catch (e) {
-    // clipboard unavailable; silently ignore
-  }
-});
-
 // --- Whitelist form submit ---
 const wlForm = document.getElementById('wlForm');
 const submitBtn = document.getElementById('submitBtn');
