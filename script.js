@@ -95,6 +95,8 @@ document.getElementById('scrollDown').addEventListener('click', () => {
 const wlForm = document.getElementById('wlForm');
 const submitBtn = document.getElementById('submitBtn');
 const wlSuccess = document.getElementById('wlSuccess');
+const successModal = document.getElementById('successModal');
+const successCloseBtn = document.getElementById('successCloseBtn');
 
 const SHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbw8rFkqKmxuiKtBTU7JreXUVvboI3flT_-Cf_nqqUIe04-z-Irt6x65Htz4-FSe7LqP/exec';
 
@@ -126,6 +128,15 @@ wlForm.addEventListener('submit', (e) => {
       setTimeout(() => {
         wlForm.hidden = true;
         wlSuccess.hidden = false;
+        successModal.hidden = false;
       }, 500);
     });
+});
+
+successCloseBtn.addEventListener('click', () => {
+  successModal.classList.add('closing');
+  setTimeout(() => {
+    successModal.hidden = true;
+    successModal.classList.remove('closing');
+  }, 250);
 });
