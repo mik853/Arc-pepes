@@ -57,6 +57,94 @@ h2 {
   pointer-events: none;
 }
 
+/* Entry modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(6, 8, 7, 0.88);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 1;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.modal-overlay[hidden] {
+  display: none;
+}
+
+.modal-overlay.closing {
+  opacity: 0;
+}
+
+.modal-box {
+  position: relative;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 40px 32px 32px;
+  max-width: 380px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 0 60px rgba(109, 224, 106, 0.2);
+  animation: modal-pop 0.35s ease;
+}
+
+@keyframes modal-pop {
+  from { opacity: 0; transform: scale(0.94) translateY(8px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.modal-pepe {
+  width: 84px;
+  height: 84px;
+  object-fit: cover;
+  object-position: 50% 25%;
+  image-rendering: pixelated;
+  border-radius: 50%;
+  border: 2px solid var(--green);
+  box-shadow: 0 0 24px var(--green-glow);
+  margin-bottom: 20px;
+}
+
+.modal-title {
+  font-size: 1rem;
+  margin: 0 0 12px;
+  line-height: 1.5;
+}
+
+.modal-body {
+  color: var(--text-dim);
+  font-size: 1.05rem;
+  font-family: var(--font-mono);
+  margin: 0 0 26px;
+}
+
+.modal-btn {
+  width: 100%;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 6px;
+  transition: color 0.15s ease;
+}
+
+.modal-close:hover {
+  color: var(--text);
+}
+
 a {
   color: inherit;
   text-decoration: none;

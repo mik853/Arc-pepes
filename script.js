@@ -1,3 +1,34 @@
+// --- Entry modal ---
+(function () {
+  const overlay = document.getElementById('entryModal');
+  const joinBtn = document.getElementById('modalJoinBtn');
+  const closeBtn = document.getElementById('modalCloseBtn');
+
+  function closeModal() {
+    overlay.classList.add('closing');
+    setTimeout(() => {
+      overlay.hidden = true;
+    }, 250);
+  }
+
+  joinBtn.addEventListener('click', () => {
+    closeModal();
+    setTimeout(() => {
+      document.getElementById('whitelist').scrollIntoView({ behavior: 'smooth' });
+    }, 200);
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !overlay.hidden) closeModal();
+  });
+})();
+
 // --- Starfield background ---
 (function () {
   const canvas = document.getElementById('stars');
@@ -65,6 +96,8 @@ const wlForm = document.getElementById('wlForm');
 const submitBtn = document.getElementById('submitBtn');
 const wlSuccess = document.getElementById('wlSuccess');
 
+const SHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbw8rFkqKmxuiKtBTU7JreXUVvboI3flT_-Cf_nqqUIe04-z-Irt6x65Htz4-FSe7LqP/exec';
+
 wlForm.addEventListener('submit', (e) => {
   e.preventDefault();
   if (submitBtn.classList.contains('launching')) return;
@@ -72,8 +105,27 @@ wlForm.addEventListener('submit', (e) => {
   submitBtn.classList.add('launching');
   submitBtn.disabled = true;
 
-  setTimeout(() => {
-    wlForm.hidden = true;
-    wlSuccess.hidden = false;
-  }, 700);
+  const payload = {
+    twitterUsername: document.getElementById('twitterUsername').value.trim(),
+    retweetLink: document.getElementById('retweetLink').value.trim(),
+    walletAddress: document.getElementById('walletAddress').value.trim(),
+  };
+
+  fetch(SHEET_ENDPOINT, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'text/plain' },
+    body: JSON.stringify(payload),
+  })
+    .catch(() => {
+      // no-cors means we can't read the response either way, but if the
+      // network request itself fails (offline, blocked), log it.
+      console.error('Whitelist submission failed to send.');
+    })
+    .finally(() => {
+      setTimeout(() => {
+        wlForm.hidden = true;
+        wlSuccess.hidden = false;
+      }, 500);
+    });
 });
